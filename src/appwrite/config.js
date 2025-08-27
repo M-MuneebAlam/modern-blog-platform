@@ -1,5 +1,6 @@
 import conf from '../conf/conf.js';
 import { Client, ID, Databases, Storage, Query } from "appwrite";
+import { Permission, Role } from "appwrite";
 
 export class Service{
     client = new Client();
@@ -14,7 +15,7 @@ export class Service{
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({title, slug, content, featuredImage, status, userId}){
+    async createPost({title, slug, content, featuredImage, status, userID}){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -25,8 +26,13 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId,
-                }
+                    userID,
+                },
+                [
+                    Permission.read(Role.any()),            // anyone can read
+                    Permission.update(Role.user(userID)),   // only creator can edit
+                    Permission.delete(Role.user(userID)),   // only creator can delete
+                ]
             )
         } catch (error) {
             console.log("Appwrite serive :: createPost :: error", error);
@@ -125,7 +131,7 @@ export class Service{
     }
 
     getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
