@@ -11,7 +11,8 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
-
+    
+    // This should now work correctly with the fixed authSlice
     const isAuthor = post && userData ? post.userID === userData.$id : false;
 
     useEffect(() => {
@@ -60,7 +61,7 @@ export default function Post() {
                 </div>
                 <div className="browser-css">
                     {parse(post.content)}
-                    </div>
+                </div>
             </Container>
         </div>
     ) : null;
