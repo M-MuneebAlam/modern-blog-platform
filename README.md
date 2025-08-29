@@ -492,7 +492,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - GitHub: [Muhammad Muneeb Alam](https://github.com/M-MuneebAlam)
 - LinkedIn: [Muneeb Alam](https://www.linkedin.com/in/muneeb-alam-203014161/)
-- Portfolio: [Portfolio](https://yourportfolio.com)
 
 ## 🙏 Acknowledgments
 
