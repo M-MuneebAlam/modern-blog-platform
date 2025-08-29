@@ -9,7 +9,7 @@ A full-featured blog platform built with **React**, **Redux Toolkit**, and **App
 
 ## 🚀 Live Demo
 
-[View Live Application](#) <!-- Add your deployed link here -->
+[View Live Application](https://modern-blog-platform-snowy.vercel.app/)
 
 ## 📋 Table of Contents
 
